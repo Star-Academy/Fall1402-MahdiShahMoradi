@@ -1,7 +1,7 @@
-search-text/the-20-newsgroups-b28960092a8cf8e833bba736d4f3d433.zip
+/search-text/EnglishData/
 
-search-text/EnglishData/**
+/search-text/Temp.java
 
-search-text/Temp.java
+*.class
 
-search-text/**.class
+
