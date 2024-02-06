@@ -10,8 +10,9 @@ import java.util.Set;
 public class WordModel {
 
     private HashSet<String>[] wordsOfEachFile;
-    private Set<String> wordStrore;
-    private HashMap<String, ArrayList<Integer>> wordMapper;
+
+    private Set<String> wordStrore = new HashSet<>();
+    private HashMap<String, ArrayList<Integer>> wordMapper = new HashMap<>();
     final private FileSerializer fileSerializer;
 
     public WordModel(FileSerializer fileSerializer) {
@@ -28,17 +29,21 @@ public class WordModel {
     private void setWordMapper() {
         for (String word : wordStrore) {
             ArrayList<Integer> list = new ArrayList<>();
-            for (int i = 0; i < getListLentgh(); i++) {
+            int len = getListLentgh();
+            for (int i = 0; i < len; i++) {
                 if (wordsOfEachFile[i].contains(word)) {
                     list.add(i);
                 }
             }
             wordMapper.put(word, list);
+            System.out.println(wordMapper.size());
         }
     }
 
+    @SuppressWarnings("unchecked")
     private void InitializeWords() throws IOException {
-        for (int i = 0; i < fileSerializer.getFileListLentgh(); i++) {
+        wordsOfEachFile = new HashSet[getListLentgh()];
+        for (int i = 0; i < getListLentgh(); i++) {
             wordsOfEachFile[i] = new HashSet<>();
             List<String> lines = Files.readAllLines(fileSerializer.getIthFilePath(i));
             putWordsToWordStore(lines);

@@ -1,5 +1,6 @@
 import java.io.File;
 import java.nio.file.Path;
+import java.util.ArrayList;
 
 public class FileSerializer {
     final private String PATH_TO_TEXTS;
@@ -30,7 +31,7 @@ public class FileSerializer {
         return file;
     }
 
-    public Integer[] getDeserializedFilesArray() {
+    public Integer[] getSerializedFilesArray() {
         Integer[] output = new Integer[getFileListLentgh()];
         for (int i = 0; i < output.length; i++) {
             output[i] = i;
@@ -48,5 +49,16 @@ public class FileSerializer {
 
     public Path getIthFilePath(int i) {
         return Path.of(PATH_TO_TEXTS + getPathList()[i]);
+    }
+
+    public ArrayList<String> getDeseralizedFiles(ArrayList<Integer> input) {
+
+        ArrayList<String> output = new ArrayList<>();
+
+        for (Integer i : input) {
+            output.add(getIthFilePath(i).toString());
+        }
+
+        return output;
     }
 }
