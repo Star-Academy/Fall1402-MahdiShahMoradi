@@ -26,6 +26,7 @@ namespace HelloWorld
         {
             string jsonString = File.ReadAllText(Path_To_Numbers);
             var numbers = JsonSerializer.Deserialize<List<Number>>(jsonString)!;
+            getList(jsonString, Number.Class);
             jsonString = File.ReadAllText(Path_To_Students);
             var students = JsonSerializer.Deserialize<List<Student>>(jsonString)!;
 
@@ -36,7 +37,6 @@ namespace HelloWorld
             .Select(g => new { StudentNumber = g.Key, AverageScore = g.Average(n => n.Score) })
             .OrderByDescending(p => p.AverageScore)
             .Take(3);
-            return topThreeScores;
 
             
             var mergedListOfNamesAndAverages = topThreeScores.Join(
@@ -53,6 +53,13 @@ namespace HelloWorld
                 Console.WriteLine($"Average: {item.Average}, First Name: {item.FirstName}, Last Name: {item.LastName}");
             }
 
+        }
+
+        private static List<T> getList <T>(string path, T o)
+        {
+            var jsonString = File.ReadAllText(path);
+            var numbers = JsonSerializer.Deserialize<List<T>>(jsonString)!;
+            return numbers;
         }
     }
 }

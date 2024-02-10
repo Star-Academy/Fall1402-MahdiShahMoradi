@@ -166,11 +166,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\m.shahmoradi\\Desktop\\code-star\\Fall1402-MahdiShahMoradi\\C#\\C#.csproj",
+      "projectUniqueName": "C:\\Users\\m.shahmoradi\\RiderProjects\\Fall1402-MahdiShahMoradi\\C#\\C#.csproj",
       "projectName": "C#",
-      "projectPath": "C:\\Users\\m.shahmoradi\\Desktop\\code-star\\Fall1402-MahdiShahMoradi\\C#\\C#.csproj",
+      "projectPath": "C:\\Users\\m.shahmoradi\\RiderProjects\\Fall1402-MahdiShahMoradi\\C#\\C#.csproj",
       "packagesPath": "C:\\Users\\m.shahmoradi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\m.shahmoradi\\Desktop\\code-star\\Fall1402-MahdiShahMoradi\\C#\\obj\\",
+      "outputPath": "C:\\Users\\m.shahmoradi\\RiderProjects\\Fall1402-MahdiShahMoradi\\C#\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\m.shahmoradi\\AppData\\Roaming\\NuGet\\NuGet.Config"
