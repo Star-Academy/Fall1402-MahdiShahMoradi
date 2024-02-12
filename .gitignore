@@ -4,4 +4,11 @@
 
 *.class
 
+.git/
+
+.idea/
+
+obj/
+
+bin/
 
