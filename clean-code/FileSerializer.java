@@ -32,7 +32,7 @@ public class FileSerializer {
     }
 
     public Integer[] getSerializedFilesArray() {
-        Integer[] output = new Integer[getFileListLentgh()];
+        Integer[] output = new Integer[getFileListLength()];
         for (int i = 0; i < output.length; i++) {
             output[i] = i;
         }
@@ -43,7 +43,7 @@ public class FileSerializer {
         return getFile().list();
     }
 
-    public int getFileListLentgh() {
+    public int getFileListLength() {
         return getFile().list().length;
     }
 

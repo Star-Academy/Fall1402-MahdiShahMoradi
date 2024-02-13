@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using System.Linq;
 
 namespace HelloWorld
 {
@@ -24,29 +23,13 @@ namespace HelloWorld
 
         public static void Main(string[] args)
         {
-            string jsonString = File.ReadAllText(Path_To_Numbers);
-            var numbers = JsonSerializer.Deserialize<List<Number>>(jsonString)!;
-            getList(jsonString, Number.Class);
-            jsonString = File.ReadAllText(Path_To_Students);
-            var students = JsonSerializer.Deserialize<List<Student>>(jsonString)!;
-
+            var numbers = GetLists<Number>(Path_To_Numbers);
+            var students = GetLists<Student>(Path_To_Students);
+            
+            var topThreeScores = GetTopThreeScores(numbers);
 
             
-            var topThreeScores = numbers
-            .GroupBy(n => n.StudentNumber)
-            .Select(g => new { StudentNumber = g.Key, AverageScore = g.Average(n => n.Score) })
-            .OrderByDescending(p => p.AverageScore)
-            .Take(3);
-
-            
-            var mergedListOfNamesAndAverages = topThreeScores.Join(
-            students,
-            sc => sc.StudentNumber,
-            nc => nc.StudentNumber,
-            (sc, nc) => new 
-                {Average = sc.AverageScore, 
-                FirstName = nc.FirstName, 
-                LastName = nc.LastName });
+            var mergedListOfNamesAndAverages = GetMergedListOfNamesAndAverages(topThreeScores, students);
 
             foreach (var item in mergedListOfNamesAndAverages)
             {
@@ -55,11 +38,37 @@ namespace HelloWorld
 
         }
 
-        private static List<T> getList <T>(string path, T o)
+        private static IEnumerable<(float AverageScore, string? FirstName, string? LastName)> GetMergedListOfNamesAndAverages(
+            IEnumerable<dynamic> topThreeScores, List<Student> students)
         {
-            var jsonString = File.ReadAllText(path);
+            var mergedListOfNamesAndAverages = topThreeScores.Join(
+                students,
+                sc => sc.StudentNumber,
+                nc => nc.StudentNumber,
+                (sc, nc) =>  
+                (sc.AverageScore, 
+                    nc.FirstName, 
+                    nc.LastName ));
+            return mergedListOfNamesAndAverages;
+        }
+
+        private static IEnumerable<dynamic> GetTopThreeScores(List<Number> numbers)
+        {
+            var topThreeScores = numbers
+                .GroupBy(n => n.StudentNumber)
+                .Select(g => new { StudentNumber = g.Key, AverageScore = g.Average(n => n.Score) })
+                .OrderByDescending(p => p.AverageScore)
+                .Take(3);
+            return topThreeScores;
+        }
+
+        private static List<T> GetLists<T>(string path)
+        {
+            string jsonString = File.ReadAllText(path);
             var numbers = JsonSerializer.Deserialize<List<T>>(jsonString)!;
             return numbers;
         }
+        
+        
     }
 }

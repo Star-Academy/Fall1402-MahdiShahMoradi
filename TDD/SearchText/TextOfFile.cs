@@ -2,23 +2,19 @@
 
 public class TextOfFile(string path)
 {
-
-    private string? _text { get; set; }
-
-
-    public string? Text => _text;
+    public string? Text { get; private set; }
+    public HashSet<string>? WordStore;
 
     private void FileToText()
     {
-        _text = File.ReadAllText(path);
+        Text = File.ReadAllText(path).ToUpper();
     }
 
     public static TextOfFile Create(string path)
     {
         TextOfFile textOfFile = new TextOfFile(path);
         textOfFile.FileToText();
+        ITextOfFile.SetWordStore(textOfFile);
         return textOfFile;
     }
-    
-    
 }

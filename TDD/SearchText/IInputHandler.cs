@@ -1,20 +1,46 @@
 ﻿namespace SearchText;
 
-public interface IHandleInput
+public interface IInputHandler
 {
     static void Handle(WordModel wordModel)
     {
         string line = Console.ReadLine();
         InterpretString interpretString = InterpretString.Create(line);
         List<int> candidateIndexes = UnionLists(wordModel, interpretString);
+        List<string> candidatePaths = GetPathOfCondidateIndexes(candidateIndexes, wordModel.PathKeeper);
+        PrintList(candidatePaths);
+    }
+
+    static void PrintList(List<string> candidatePaths)
+    {
+        foreach (string path in candidatePaths)
+        {
+            Console.WriteLine(path);
+        }
     }
 
     static List<int> UnionLists(WordModel wordModel, InterpretString interpretString)
     {
-        List<int> output = GetAllIndexes(wordModel);
         List<int> mainWordsList = GetMainWordsList(wordModel, interpretString);
         List<int> negativeWordsList = GetNegativeWordsList(wordModel, interpretString);
-        // List<int> plusWordsList = GetPlusWordsList(wordModel, interpretString);
+        List<int> plusWordsList = GetPlusWordsList(wordModel, interpretString);
+
+        List<int> output = mainWordsList.Intersect(negativeWordsList).ToList().Intersect(plusWordsList).ToList();
+        return output;
+    }
+
+    static List<int> GetPlusWordsList(WordModel wordModel, InterpretString interpretString)
+    {
+        List<int> output = GetAllIndexes(wordModel);
+        if (interpretString.PlusWords.Count != 0)
+        {
+            output = new List<int>();
+            foreach (string str in interpretString.PlusWords)
+            {
+                if (wordModel.WordMapper.ContainsKey(str))
+                    output = output.Union(wordModel.WordMapper[str]).ToList();
+            }
+        }
 
         return output;
     }
@@ -71,6 +97,16 @@ public interface IHandleInput
             output.Add(i);
         }
 
+        return output;
+    }
+
+    static List<string> GetPathOfCondidateIndexes(List<int> input, PathKeeper? pathKeeper)
+    {
+        List<string> output = new List<string>();
+        foreach (int i in input)
+        {
+            output.Add(IPathKeeper.GetIthPath(pathKeeper, i));
+        }
         return output;
     }
 }

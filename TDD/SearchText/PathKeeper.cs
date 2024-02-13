@@ -1,18 +1,19 @@
 ﻿namespace SearchText;
 
-public class FileSerializer
+public class PathKeeper
 {
     public readonly string PathToFolder;
     public string[]? PathList;
+    
 
-    public static FileSerializer Create(string path)
+    public static PathKeeper? Create(string path)
     {
-        FileSerializer fileSerializer = new FileSerializer(path);
-        IFileSerializer.SetPathList(fileSerializer);
-        return fileSerializer;
+        PathKeeper? pathKeeper = new PathKeeper(path);
+        IPathKeeper.SetPathList(pathKeeper);
+        return pathKeeper;
     }
 
-    private FileSerializer(string pathToFolder)
+    private PathKeeper(string pathToFolder)
     {
         PathToFolder = pathToFolder;
     }

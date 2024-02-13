@@ -2,7 +2,7 @@
 
 namespace SearchTextTest;
 
-public class HandleInputTests
+public class InputHandlerTests
 {
     private readonly string _pathToFolder = "./../../../../EnglishData";
     [Fact]
@@ -30,6 +30,7 @@ public class HandleInputTests
         WordModel wordModel = WordModel.Create(PathKeeper.Create(_pathToFolder)!);
         List<int> actual = IInputHandler.GetMainWordsList(wordModel, interpretString);
         Assert.Equal([14], actual);
+        Assert.NotEqual(IPathKeeper.GetListLength(wordModel.PathKeeper), actual.Count);
     }
 
     [Fact]
@@ -39,6 +40,7 @@ public class HandleInputTests
         WordModel wordModel = WordModel.Create(PathKeeper.Create(_pathToFolder)!);
         List<int> actual = IInputHandler.GetNegativeWordsList(wordModel, interpretString);
         Assert.DoesNotContain(14, actual);
+        Assert.NotEqual(IPathKeeper.GetListLength(wordModel.PathKeeper), actual.Count);
     }
 
     [Fact]
@@ -52,18 +54,43 @@ public class HandleInputTests
         Assert.Contains(5, actual);
         Assert.Contains(14, actual);
         Assert.Contains(15, actual);
+        Assert.NotEqual(IPathKeeper.GetListLength(wordModel.PathKeeper), actual.Count);
+    }
+
+    [Theory]
+    [InlineData("hello -hello")]
+    [InlineData("-hello +hello")]
+    public void CheckPlusAndMainAndNegativeTogethere(string input)
+    {
+        string text = input;
+        InterpretString interpretString = InterpretString.Create(text);
+        WordModel wordModel = WordModel.Create(PathKeeper.Create(_pathToFolder)!);
+        List<int> actual = IInputHandler.UnionLists(wordModel, interpretString);
+        Assert.Equal(0, actual.Count);
+    
     }
 
     [Fact]
     public void CheckUnionList()
     {
-        string text =
-            "+>>    When I was a kid in primary +school, -mahdi";
+        string text = "+>>    When I was a kid in primary +school, -mahdi";
         InterpretString interpretString = InterpretString.Create(text);
         WordModel wordModel = WordModel.Create(PathKeeper.Create(_pathToFolder)!);
         List<int> actual = IInputHandler.UnionLists(wordModel, interpretString);
         Assert.Contains(5, actual);
         Assert.Contains(14, actual);
         Assert.Contains(15, actual);
+        Assert.NotEqual(IPathKeeper.GetListLength(wordModel.PathKeeper), actual.Count);
+    }
+
+    [Fact]
+    public void CheckIndexToPath()
+    {
+        List<int> input = [1, 3, 5, 7, 9];
+        List<string> excepted = ["./../../../../EnglishData\\58043", 
+            "./../../../../EnglishData\\58045", "./../../../../EnglishData\\58047", 
+            "./../../../../EnglishData\\58049", "./../../../../EnglishData\\58051"];
+        Assert.Equal(excepted, 
+            IInputHandler.GetPathOfCondidateIndexes(input, PathKeeper.Create(_pathToFolder)));
     }
 }
