@@ -6,4 +6,11 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>StarAcademy.CodeStar1402.Team1.TDD</PackageId>
+        <Authors>Mahdi</Authors>
+        <Company>Star Academy</Company>
+    </PropertyGroup>
+    
 </Project>

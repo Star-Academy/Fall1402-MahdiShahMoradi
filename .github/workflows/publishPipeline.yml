@@ -1,0 +1,34 @@
+﻿name: publish
+
+on:
+    release:
+        types: published
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        
+        steps:
+            -   uses: actions/checkout@v3
+
+            -   name: Setup .NET
+                uses: actions/setup-dotnet@v2
+                with:
+                    dotnet-version: 8.0.x
+
+            -   name: Get current release version
+                id: version
+                uses: pozetroninc/github-action-get-latest-release@main
+                with:
+                    repository: Star-Academy/Fall1402-MahdiShahMoradi
+                        
+            -   name: Build library and generate NuGet Package
+                run: dotnet pack -c Release -o artifacts -p:PackageVersion=${{ steps.version.outputs.release }}
+                working-directory: ./TDD
+                    
+                    
+            -   name: Publish NuGet Package
+                run: dotnet nuget push ./**/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+                    
+                    
+                    
