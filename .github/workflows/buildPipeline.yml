@@ -20,12 +20,12 @@ jobs:
 
             - name: Install dependencies
               run: dotnet restore
-              working-directory: ./../../TDD
+              working-directory: ./TDD
 
             - name: Build
               run: dotnet build --configuration Release --no-restore
-              working-directory: ./../../TDD
+              working-directory: ./TDD
 
             - name: Test
               run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
-              working-directory: ./../../TDD
+              working-directory: ./TDD
