@@ -30,12 +30,18 @@ public class PathKeeper : IPathKeeper
         {
             list[i] = Directory.GetFiles(this._pathToFolder)[i];
         }
-        _pathList = list;
+
+        _pathList = SortList(list);
     }
-    
+
+    private string[] SortList(string[] list)
+    {
+        return list.OrderBy(x => x).ToArray();
+    }
+
     public string GetIthPath(int i)
     {
-        return this._pathList![i];
+        return _pathList![i];
     }
     
     public List<string> GetPathOfCandidateIndexes(List<int> input)
