@@ -35,6 +35,6 @@ public class WordModelTests
     public void CheckWordMapper()
     {
         WordModel wordModel = WordModel.Create(PathKeeper.Create(PathToFolder)!);
-        Assert.NotNull(wordModel.WordMapper["HELLO"]);
+        Assert.NotNull(wordModel.WordMapper!["HELLO"]);
     }
 }
