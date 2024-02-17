@@ -156,9 +156,9 @@ public class InputHandlerTests
         List<int> input = [1, 3, 5, 7, 9];
         List<string> excepted =
         [
-            "./../../../../EnglishData\\58043",
-            "./../../../../EnglishData\\58045", "./../../../../EnglishData\\58047",
-            "./../../../../EnglishData\\58049", "./../../../../EnglishData\\58051"
+            "./../../../../EnglishData/58043",
+            "./../../../../EnglishData/58045", "./../../../../EnglishData/58047",
+            "./../../../../EnglishData/58049", "./../../../../EnglishData/58051"
         ];
         var actual = PathKeeper.Create(_pathToFolder).GetPathOfCandidateIndexes(input);
         actual.Should().BeEquivalentTo(excepted);
@@ -172,8 +172,8 @@ public class InputHandlerTests
         _iio.GetInput().Returns("+>>    When I was a kid in primary +school, -mahdi");
         List<string> excepted =
         [
-            "./../../../../EnglishData\\58047",
-            "./../../../../EnglishData\\58056", "./../../../../EnglishData\\58057"
+            "./../../../../EnglishData/58047",
+            "./../../../../EnglishData/58056", "./../../../../EnglishData/58057"
         ];
 
         // act
