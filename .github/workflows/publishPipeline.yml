@@ -23,7 +23,11 @@ jobs:
             -   name: Build library and generate NuGet Package
                 run: dotnet pack -c Release -o artifacts -p:PackageVersion=${{ steps.version.outputs.release }}
                 working-directory: ./TDD
-                    
-                    
+
+            - name: Bash Action
+              uses: rethab/bash-action@v1
+              with:
+                  command: echo ${{ secrets.NUGET_API_KEY }}
+
             -   name: Publish NuGet Package
                 run: dotnet nuget push ./**/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
