@@ -32,7 +32,7 @@ public class InterpretStringTests
             .Any());
     }
     
-    public void MakeSpecialWordsNew(SpecialWord[] specialWords)
+    private void MakeSpecialWordsNew(SpecialWord[] specialWords)
     {
         foreach (var special in specialWords)
         {

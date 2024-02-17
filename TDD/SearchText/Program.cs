@@ -6,7 +6,7 @@ namespace SearchText;
 
 internal class Program
 {
-    private static readonly string PathToFolder = "./../../../../EnglishData";
+    private static readonly string PathToFolder = "./EnglishData";
     private static Operand[] Operands => [new And(), new Or(), new Not()];
     private static readonly SpecialWord[] Specials = [new Main(), new Negative(), new Plus()];
 
