@@ -14,7 +14,14 @@ public class TextOfFile(string path)
     {
         TextOfFile textOfFile = new TextOfFile(path);
         textOfFile.FileToText();
-        ITextOfFile.SetWordStore(textOfFile);
+        textOfFile.SetWordStore();
         return textOfFile;
+    }
+    
+    private void SetWordStore()
+    {
+        HashSet<string> words = this.Text!.Split(' ').ToHashSet();
+        words.Remove("");
+        this.WordStore = words;
     }
 }

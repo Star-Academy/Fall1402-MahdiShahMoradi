@@ -1,63 +1,53 @@
-﻿namespace SearchText;
+﻿using SearchText.SpecialWords;
+
+namespace SearchText;
 
 public class InterpretString
 {
-    public List<string> MainWords;
-    public List<string> PlusWords;
-    public List<string> NegativeWords;
-    public string Line;
-    public string[] Words;
+    private readonly string _line;
+    private string[]? _words;
+    public SpecialWord[] Specials;
+    
 
-    private InterpretString(string line)
+    private InterpretString(string line, SpecialWord[] specials)
     {
-        Line = line;
-        MainWords = new List<string>();
-        PlusWords = new List<string>();
-        NegativeWords = new List<string>();
+        _line = line;
+        Specials = specials;
     }
 
-    public static InterpretString Create(string? line)
+    public static InterpretString Create(string? line, SpecialWord[] specials)
     {
-        InterpretString interpretString = new InterpretString(line!);
-        IInterpretString.SetSplitWords(interpretString);
-        IInterpretString.SetSpecialWords(interpretString);
+        InterpretString interpretString = new InterpretString(line!, specials);
+        interpretString.SetSplitWords();
+        interpretString.SetSpecialWords();
         return interpretString;
     }
     
-    
-}
-
-public interface IInterpretString
-{
-    static void SetSpecialWords(InterpretString interpretString)
+    private void SetSpecialWords()
     {
-        foreach (string str in interpretString.Words)
+        foreach (var str in _words!)
         {
-            string uppercaseString = str.ToUpper();
-            if (str[0] == '+')
+            var uppercaseString = str.ToUpper();
+            var isAddToAnyGroup = false;
+            foreach (var specialWord in Specials)
             {
-                AddMarkedWordToWords(interpretString.PlusWords, uppercaseString);
+                if (uppercaseString[0] != specialWord.Sign) continue;
+
+                isAddToAnyGroup = true;
+                specialWord.AddSpecificWord(uppercaseString);
+                break;
             }
-            else if (str[0] == '-')
+            if (!isAddToAnyGroup)
             {
-                AddMarkedWordToWords(interpretString.NegativeWords, uppercaseString);
-            }
-            else
-            {
-                interpretString.MainWords.Add(uppercaseString);
+                Specials[0].AddSpecificWord(uppercaseString);
             }
         }
     }
 
-    private static void AddMarkedWordToWords(List<string> list, string word)
+    private void SetSplitWords()
     {
-        list.Add(word.Substring(1).ToUpper());
-    }
-
-    static void SetSplitWords(InterpretString interpretString)
-    {
-        HashSet<string> words = interpretString.Line.Split(' ').ToHashSet();
+        var words = this._line.Split(' ').ToHashSet();
         words.Remove("");
-        interpretString.Words = words.ToArray();
+        _words = words.ToArray();
     }
 }

@@ -1,30 +1,8 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AProgram_002Ecs_002Fl_003A_002E_002E_003FProject_003FProgram_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=18d7f2af_002D7a13_002D4ebd_002Db59b_002D4d125af0fe3c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="InterpretStringTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.InterpretStringTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.HandleInputTests.CheckAllIndexGetter&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.HandleInputTests.CheckMainWordList&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.HandleInputTests.CheckNegativeWordList&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.HandleInputTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.InputHandlerTests.CheckIndexToPath&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.InputHandlerTests.CheckUnionList&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.InputHandlerTests&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=436410db_002D15ac_002D4ca9_002D8d72_002Dffaacb1d5725/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TextFileEquality" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.WordModelTests.CheckWordHashSetCorrectivity&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.FileSerializerTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.WordModelTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.PathKeeperTests&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\m.shahmoradi\AppData\Local\JetBrains\Rider2023.3\resharper-host\temp\Rider\vAny\CoverageData\_TDD.1635124288\Snapshot\snapshot.utdcvr</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cc34a160_002D2fb7_002D473c_002D97b0_002D317404191573/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="WordModelTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.WordModelTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.PathKeeperTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::FFBBD8D5-DA42-4400-A62C-F458A2F10443::net8.0::SearchTextTest.InterpretStringTests.CheckSplitWords&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+	
+	
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cc34a160_002D2fb7_002D473c_002D97b0_002D317404191573/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WordModelTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\m.shahmoradi\RiderProjects\Fall1402-MahdiShahMoradi\TDD\SearchTextTest" Presentation="&amp;lt;SearchTextTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
