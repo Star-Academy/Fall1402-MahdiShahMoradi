@@ -4,14 +4,18 @@ namespace HelloWorld
 {
     class Project
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            return;
-        }
-
-        static int add(int a, int b)
-        {
-            return a + b;
+            string text =
+                ">>    When I was a kid in primary school, I used to drink tons of milk withou> any problems." +
+                "  However, nowadays, I can hardly drink any at all withou> experiencing some discomfort." +
+                "  What could be responsible for the change>> Ho Leung N> ng4@husc.harvard.ed".ToUpper();
+            // List<string> words = text.Split(' ').ToList().ToHashSet();
+            // words.RemoveAll("");
+            // for (int i = 0; i < words.Count; i++)
+            // {
+            //     Console.WriteLine("!" + words[i] + "!" + i);
+            // }
         }
     }
 }
