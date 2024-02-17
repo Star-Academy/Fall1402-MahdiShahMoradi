@@ -1,3 +1,4 @@
+using FluentAssertions;
 using SearchText;
 
 namespace SearchTextTest;
@@ -17,7 +18,7 @@ public class PathKeeperTests
     {
         string path = "./../../../../EnglishData";
         PathKeeper pathKeeper = PathKeeper.Create(path);
-        Assert.Equal(path + "\\58052", pathKeeper.GetIthPath(10));
+        Assert.Equal(path + "/58052", pathKeeper.GetIthPath(10));
     }
 }
 
