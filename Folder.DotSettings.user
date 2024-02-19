@@ -5,6 +5,6 @@
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ASimpleCalculator_002Ecs_002Fl_003AUnitTest_003FSimpleCalculator_003FSimpleCalculator_002EBusiness_003FSimpleCalculator_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	
 	<s:String x:Key="/Default/CodeInspection/PencilsConfiguration/ActualSeverity/@EntryValue">INFO</s:String>
-	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\m.shahmoradi\AppData\Local\JetBrains\Rider2023.3\resharper-host\temp\Rider\vAny\CoverageData\_Fall1402-MahdiShahMoradi.19\Snapshot\snapshot.utdcvr</s:String>
+	
 	
 	</wpf:ResourceDictionary>
